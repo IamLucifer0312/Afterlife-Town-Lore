@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "././style/card.css";
 
 const Slider = ({ stories }) => {
@@ -7,7 +7,7 @@ const Slider = ({ stories }) => {
 
   // config params
   let countItem = items.length;
-  let itemActive = 0;
+  const [itemActive, setItemActive] = useState(0);
 
   function showSlider() {
     // remove old active items
@@ -22,29 +22,17 @@ const Slider = ({ stories }) => {
   }
 
   // click thumbnail
-  thumbnails.forEach((thumbnail, index) => {
-    thumbnail.addEventListener("click", () => {
-      itemActive = index;
-      showSlider();
-    });
-  });
+  const handleThumbnailClick = (index) => {
+    setItemActive(index); // Update the active index based on thumbnail click
+    showSlider();
+  };
 
   return (
     <div className="slider">
       <div className="list">
         {stories.map((story, index) => (
-          <div
-            key={story._id}
-            className={`item ${index === 0 ? "active" : ""}`}
-          >
-            <img
-              src={
-                `./images/image${index + 1}.jpg`
-                  ? `./images/image${index + 1}.jpg`
-                  : `./images/image${index + 1}.png`
-              }
-              alt={story.title}
-            />
+          <div key={story._id} className={`item ${index == 0 ? "active" : ""}`}>
+            <img src={`./images/${story.imageName}`} alt={story.title} />
             <div className="content">
               <p>{story.game}</p>
               <h2>{story.title}</h2>
@@ -58,16 +46,10 @@ const Slider = ({ stories }) => {
         {stories.map((story, index) => (
           <div
             key={story._id}
-            className={`item ${index === 0 ? "active" : ""}`}
+            className={`item ${index == 0 ? "active" : ""}`}
+            onClick={() => handleThumbnailClick(index)}
           >
-            <img
-              src={
-                `./images/image${index + 1}.jpg`
-                  ? `./images/image${index + 1}.jpg`
-                  : `./images/image${index + 1}.png`
-              }
-              alt={story.title}
-            />
+            <img src={`./images/${story.imageName}`} alt={story.title} />
             <div className="content">{story.title}</div>
           </div>
         ))}
