@@ -9,6 +9,7 @@ const userSchema = new mongoose.Schema(
         title: String,
         game: String,
         content: String,
+        imageName: String,
       },
     ],
   },
