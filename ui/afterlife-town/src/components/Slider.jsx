@@ -1,7 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 import "././style/card.css";
 
-const Slider = () => {
+const Slider = ({ stories }) => {
   let items = document.querySelectorAll(".slider .item");
   let thumbnails = document.querySelectorAll(".thumbnail .item");
 
@@ -32,72 +32,45 @@ const Slider = () => {
   return (
     <div className="slider">
       <div className="list">
-        <div className="item active">
-          <img src="././images/image1.jpg"></img>
-          <div className="content">
-            <p>design</p>
-            <h2>Slider 1</h2>
-            <p>Lorem ipsun dolo dasdasdasdas</p>
+        {stories.map((story, index) => (
+          <div
+            key={story._id}
+            className={`item ${index === 0 ? "active" : ""}`}
+          >
+            <img
+              src={
+                `./images/image${index + 1}.jpg`
+                  ? `./images/image${index + 1}.jpg`
+                  : `./images/image${index + 1}.png`
+              }
+              alt={story.title}
+            />
+            <div className="content">
+              <p>{story.game}</p>
+              <h2>{story.title}</h2>
+              <p>{story.content}</p>
+            </div>
           </div>
-        </div>
-
-        <div className="item">
-          <img src="././images/image2.png"></img>
-          <div className="content">
-            <p>design</p>
-            <h2>Slider 1</h2>
-            <p>Lorem ipsun dolo dasdasdasdas</p>
-          </div>
-        </div>
-
-        <div className="item">
-          <img src="././images/image3.png"></img>
-          <div className="content">
-            <p>design</p>
-            <h2>Slider 1</h2>
-            <p>Lorem ipsun dolo dasdasdasdas</p>
-          </div>
-        </div>
-
-        <div className="item">
-          <img src="././images/image1.jpg"></img>
-          <div className="content">
-            <p>design</p>
-            <h2>Slider 1</h2>
-            <p>Lorem ipsun dolo dasdasdasdas</p>
-          </div>
-        </div>
-
-        <div className="item">
-          <img src="././images/image1.jpg"></img>
-          <div className="content">
-            <p>design</p>
-            <h2>Slider 1</h2>
-            <p>Lorem ipsun dolo dasdasdasdas</p>
-          </div>
-        </div>
+        ))}
       </div>
+
       <div className="thumbnail">
-        <div className="item active">
-          <img src="././images/image1.jpg"></img>
-          <div className="content">Name Slider</div>
-        </div>
-        <div className="item">
-          <img src="././images/image2.png"></img>
-          <div className="content">Name Slider</div>
-        </div>
-        <div className="item">
-          <img src="././images/image3.png"></img>
-          <div className="content">Name Slider</div>
-        </div>
-        <div className="item">
-          <img src="././images/image1.jpg"></img>
-          <div className="content">Name Slider</div>
-        </div>
-        <div className="item">
-          <img src="././images/image1.jpg"></img>
-          <div className="content">Name Slider</div>
-        </div>
+        {stories.map((story, index) => (
+          <div
+            key={story._id}
+            className={`item ${index === 0 ? "active" : ""}`}
+          >
+            <img
+              src={
+                `./images/image${index + 1}.jpg`
+                  ? `./images/image${index + 1}.jpg`
+                  : `./images/image${index + 1}.png`
+              }
+              alt={story.title}
+            />
+            <div className="content">{story.title}</div>
+          </div>
+        ))}
       </div>
     </div>
   );
