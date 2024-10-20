@@ -3,6 +3,7 @@ body {
   margin: 0;
   background-color: #010101;
   color: #eee;
+  caret-color: transparent;
 }
 
 .slider {

@@ -51,7 +51,7 @@ const Slider = () => {
         </div>
 
         <div className="item">
-          <img src="././images/image1.jpg"></img>
+          <img src="././images/image3.png"></img>
           <div className="content">
             <p>design</p>
             <h2>Slider 1</h2>
@@ -87,7 +87,7 @@ const Slider = () => {
           <div className="content">Name Slider</div>
         </div>
         <div className="item">
-          <img src="././images/image1.jpg"></img>
+          <img src="././images/image3.png"></img>
           <div className="content">Name Slider</div>
         </div>
         <div className="item">
