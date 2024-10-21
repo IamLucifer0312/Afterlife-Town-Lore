@@ -11,7 +11,7 @@ const GetStory = () => {
   const newStories = [
     {
       title: "The 1st Story",
-      content: "This is the 1st story content",
+      content: "Trang web chạy rồi YOU BITCHES",
       imageName: "image1.jpg",
       game: "Game 1",
     },
