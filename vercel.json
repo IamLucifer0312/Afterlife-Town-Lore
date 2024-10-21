@@ -1,0 +1,14 @@
+{
+  "builds": [
+    {
+      "src": "ui/afterlife-town/package.json",
+      "use": "@vercel/node"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "ui/afterlife-town/$1"
+    }
+  ]
+}
