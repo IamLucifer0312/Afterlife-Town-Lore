@@ -12,11 +12,9 @@ const LoginRegister = () => {
 
   const purpose = useParams().purpose;
   const storyNo = useParams().storyNo;
-  const registerUrl = "/register";
 
-  if (purpose == "story") {
-    const registerUrl = "/register/story/" + storyNo;
-  }
+  const registerUrl =
+    purpose == "story" ? "/register/story/" + storyNo : "/register";
   const handleLogin = async (e) => {
     e.preventDefault();
     try {

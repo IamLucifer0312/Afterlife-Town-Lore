@@ -14,7 +14,7 @@ const Register = () => {
   const purpose = useParams().purpose;
   const storyNo = useParams().storyNo;
 
-  const handleLogin = async (e) => {
+  const handleRegister = async (e) => {
     e.preventDefault();
     if (password !== confPassword) {
       setError("Passwords do not match!");
@@ -53,7 +53,7 @@ const Register = () => {
   return (
     <div className="login-register">
       <div className="wrapper">
-        <form action="" onSubmit={handleLogin}>
+        <form action="" onSubmit={handleRegister}>
           <h1>Register</h1>
           <div className="input-box">
             <input
