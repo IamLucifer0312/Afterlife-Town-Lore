@@ -4,30 +4,31 @@ import backgroundImage from "/images/image1.jpg";
 import "boxicons/css/boxicons.min.css";
 import "./style/LoginRegister.css";
 
-const LoginRegister = () => {
+const Register = () => {
   const [name, setName] = useState("");
   const [password, setPassword] = useState("");
+  const [confPassword, setConfPassword] = useState("");
   const [error, setError] = useState(null);
   const navigate = useNavigate();
 
   const purpose = useParams().purpose;
   const storyNo = useParams().storyNo;
-  const registerUrl = "/register";
 
-  if (purpose == "story") {
-    const registerUrl = "/register/story/" + storyNo;
-  }
   const handleLogin = async (e) => {
     e.preventDefault();
+    if (password !== confPassword) {
+      setError("Passwords do not match!");
+      return;
+    }
     try {
       const response = await fetch(
-        "https://afterlife-town-lore.onrender.com/users/login",
+        "https://afterlife-town-lore.onrender.com/users",
         {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
           },
-          body: JSON.stringify({ name, password }),
+          body: JSON.stringify({ name: name, password: password, stories: [] }),
         }
       );
 
@@ -53,7 +54,7 @@ const LoginRegister = () => {
     <div className="login-register">
       <div className="wrapper">
         <form action="" onSubmit={handleLogin}>
-          <h1>Login</h1>
+          <h1>Register</h1>
           <div className="input-box">
             <input
               type="text"
@@ -74,23 +75,23 @@ const LoginRegister = () => {
             />
             <i class="bx bxs-lock-alt"></i>
           </div>
-          <div className="remember-forgot">
-            <label>
-              <input type="checkbox" />
-              Remember me
-            </label>
-            <a href="/forgot-password">Forgot password?</a>
+          <div className="input-box">
+            <input
+              type="password"
+              placeholder="Confirm Password"
+              value={confPassword}
+              onChange={(e) => setConfPassword(e.target.value)}
+              required
+            />
+            <i class="bx bxs-lock-alt"></i>
           </div>
           <button type="submit" className="btn">
-            Login
+            Register
           </button>
-          <div className="register-link">
-            Don't have an account? <a href={registerUrl}>Register</a>
-          </div>
         </form>
       </div>
     </div>
   );
 };
 
-export default LoginRegister;
+export default Register;

@@ -71,7 +71,7 @@ const GetStory = () => {
   };
 
   useEffect(() => {
-    fetchStories({ userId: "671380c7735f09a4ddcbe906" });
+    fetchStories({ userId: userId });
   }, []);
 
   useEffect(() => {
