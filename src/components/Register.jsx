@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import backgroundImage from "/images/image1.jpg";
 import "boxicons/css/boxicons.min.css";
-import "./components/style/LoginRegister.css";
+import "./style/LoginRegister.css";
 
 const Register = () => {
   const [name, setName] = useState("");
