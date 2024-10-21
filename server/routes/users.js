@@ -32,26 +32,6 @@ router.get("/", async (req, res) => {
   }
 });
 
-router.post("/login", async (req, res) => {
-  const { username, password } = req.body;
-
-  try {
-    const user = await Users.findOne({ username });
-
-    if (user && (await bcrypt.compare(password, user.password))) {
-      res.json({
-        username: user.username,
-        role: user.role,
-      });
-    } else {
-      res.status(401).json({ message: "Incorrect username or password" });
-    }
-  } catch (err) {
-    console.log(err);
-    res.status(500).json({ message: "Server error" });
-  }
-});
-
 // // Get one note
 router.get("/:id", getUser, (req, res) => {
   res.send(res.user);
