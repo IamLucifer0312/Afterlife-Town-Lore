@@ -9,7 +9,13 @@ const Slider = ({ stories }) => {
   let countItem = items.length;
   const [itemActive, setItemActive] = useState(0);
 
-  function showSlider() {
+  useEffect(() => {
+    if (items.length && thumbnails.length) {
+      showSlider();
+    }
+  }, [itemActive]);
+
+  const showSlider = () => {
     // remove old active items
     let oldActiveItem = document.querySelector(".slider .list .item.active");
     let oldActiveThumbnail = document.querySelector(".thumbnail .item.active");
@@ -19,12 +25,11 @@ const Slider = ({ stories }) => {
     // add new active items
     items[itemActive].classList.add("active");
     thumbnails[itemActive].classList.add("active");
-  }
+  };
 
   // click thumbnail
   const handleThumbnailClick = (index) => {
     setItemActive(index); // Update the active index based on thumbnail click
-    showSlider();
   };
 
   return (
@@ -32,7 +37,7 @@ const Slider = ({ stories }) => {
       <div className="list">
         {stories.map((story, index) => (
           <div key={story._id} className={`item ${index == 0 ? "active" : ""}`}>
-            <img src={`./images/${story.imageName}`} alt={story.title} />
+            <img src={`/images/${story.imageName}`} alt={story.title} />
             <div className="content">
               <p>{story.game}</p>
               <h2>{story.title}</h2>
@@ -49,7 +54,7 @@ const Slider = ({ stories }) => {
             className={`item ${index == 0 ? "active" : ""}`}
             onClick={() => handleThumbnailClick(index)}
           >
-            <img src={`./images/${story.imageName}`} alt={story.title} />
+            <img src={`/images/${story.imageName}`} alt={story.title} />
             <div className="content">{story.title}</div>
           </div>
         ))}

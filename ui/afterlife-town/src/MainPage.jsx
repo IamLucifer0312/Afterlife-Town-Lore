@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
 import Slider from "./components/Slider";
 
 const MainPage = () => {
   const [stories, setStories] = useState([]);
+  const { userId } = useParams();
 
   useEffect(() => {
     const fetchStories = async ({ userId }) => {
@@ -17,7 +19,8 @@ const MainPage = () => {
         console.error("Error fetching stories: ", error);
       }
     };
-    fetchStories({ userId: "671380c7735f09a4ddcbe906" });
+    console.log(userId);
+    fetchStories({ userId: userId });
   }, []);
   return <Slider stories={stories} />;
 };
