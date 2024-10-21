@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import "././style/card.css";
+import "./components/style/card.css";
 
 const Slider = ({ stories }) => {
   let items = document.querySelectorAll(".slider .item");
