@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import backgroundImage from "/images/image1.jpg";
 import "boxicons/css/boxicons.min.css";
 import "./style/LoginRegister.css";
@@ -9,6 +9,9 @@ const LoginRegister = () => {
   const [password, setPassword] = useState("");
   const [error, setError] = useState(null);
   const navigate = useNavigate();
+
+  const purpose = useParams().purpose;
+  const storyNo = useParams().storyNo;
 
   const handleLogin = async (e) => {
     e.preventDefault();
@@ -26,9 +29,13 @@ const LoginRegister = () => {
 
       if (response.ok) {
         const data = await response.json();
-        localStorage.setItem("user", JSON.stringify(data._id));
+        localStorage.setItem("user", data._id);
         localStorage.setItem("isAuthenticated", true);
-        navigate("/main-page/" + data._id);
+        if (purpose == "story") {
+          navigate("/get-story/" + data._id + "/" + storyNo);
+        } else {
+          navigate("/main-page/" + data._id);
+        }
       } else {
         const errorData = await response.json();
         setError(errorData.message || "Login failed!");

@@ -22,7 +22,7 @@ const GetStory = () => {
       game: "Game 2",
     },
     {
-      title: "The New 3rd Story",
+      title: "The 3rd Story",
       content: "This is the new story content",
       imageName: "image2.png",
       game: "New Game",
