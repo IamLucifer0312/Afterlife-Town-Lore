@@ -55,7 +55,6 @@ const Slider = ({ stories }) => {
             onClick={() => handleThumbnailClick(index)}
           >
             <img src={`/images/${story.imageName}`} alt={story.title} />
-            <div className="content">{story.title}</div>
           </div>
         ))}
       </div>
