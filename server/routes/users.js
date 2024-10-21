@@ -32,12 +32,12 @@ router.get("/", async (req, res) => {
   }
 });
 
-// // Get one note
+// // Get one
 router.get("/:id", getUser, (req, res) => {
   res.send(res.user);
 });
 
-// Create one note
+// Create one
 router.post("/", upload.none(), async (req, res) => {
   const user = new Users({
     name: req.body.name,
@@ -52,7 +52,7 @@ router.post("/", upload.none(), async (req, res) => {
   }
 });
 
-// Update one note
+// Update one
 router.patch("/:id", upload.none(), getUser, async (req, res) => {
   if (req.body.name != null) {
     res.user.name = req.body.name;
@@ -71,7 +71,7 @@ router.patch("/:id", upload.none(), getUser, async (req, res) => {
   }
 });
 
-// // Delete one note
+// // Delete one
 router.delete("/:id", getUser, async (req, res) => {
   try {
     await res.user.deleteOne();
@@ -96,14 +96,14 @@ async function getUser(req, res, next) {
 }
 
 // Login user
-router.post("/login", async (req, res) => {
+router.post("/login", upload.none(), async (req, res) => {
   const { name, password } = req.body;
-
   try {
     const user = await Users.findOne({ name });
 
-    if (user && (await bcrypt.compare(password, user.password))) {
+    if (user && password == user.password) {
       res.json({
+        _id: user._id,
         message: "Login successful",
       });
     } else {
