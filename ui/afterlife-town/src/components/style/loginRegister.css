@@ -1,11 +1,11 @@
-* {
+.login-register * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   font-family: "Popins", sans-serif;
 }
 
-body {
+.login-register {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -96,6 +96,7 @@ i {
   color: #333;
   cursor: pointer;
   font-weight: 600;
+  transition: 0.5s;
 }
 
 .wrapper .register-link {
@@ -112,4 +113,9 @@ i {
 
 .register-link p a:hover {
   text-decoration: underline;
+}
+
+.wrapper .btn:hover {
+  background: #333;
+  color: #fff;
 }

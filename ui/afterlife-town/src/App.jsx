@@ -11,7 +11,15 @@ function App() {
     <Router>
       <Routes>
         <Route path="/" element={<LoginRegister />} />
-        <Route path="/main-page/:userId" element={<MainPage />} />
+
+        <Route
+          path="/main-page/:userId"
+          element={
+            <PrivateRoute>
+              <MainPage />
+            </PrivateRoute>
+          }
+        />
         <Route path="/401" element={<UnauthorizedPage />} />
         <Route path="/get-story/:userId/:storyNo" element={<GetStory />} />
       </Routes>
