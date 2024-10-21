@@ -115,4 +115,24 @@ async function getUser(req, res, next) {
   next();
 }
 
+// Login user
+router.post("/login", async (req, res) => {
+  const { name, password } = req.body;
+
+  try {
+    const user = await Users.findOne({ name });
+
+    if (user && (await bcrypt.compare(password, user.password))) {
+      res.json({
+        message: "Login successful",
+      });
+    } else {
+      res.status(401).json({ message: "Incorrect username or password" });
+    }
+  } catch (err) {
+    console.log(err);
+    res.status(500).json({ message: "Server error" });
+  }
+});
+
 module.exports = router;
