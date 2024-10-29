@@ -134,4 +134,8 @@ body {
   .slider .list .item .content h2 {
     font-size: 45px;
   }
+
+  .slider .list .item .content {
+    top: 15%;
+  }
 }
