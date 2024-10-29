@@ -15,21 +15,21 @@ function App() {
       title: "The Sanzu River",
       content:
         "Each player will be given 4 sticky tentacles. On the table, there will be target cards. Players must throw their tentacles at the victim cards to catch them, ensuring the tentacles stick (similar to claw machine). Rewards are based on the number of victims they successfully catch. ",
-      imageName: "stickycthulhu.png",
+      imageName: "game1.jpg",
       game: "Sticky Cthulhu",
     },
     {
       title: "The Yaoguai's Cave",
       content:
         "Each player selects a hero to enter the dungeon. Before entering, they can purchase equipment for their hero by paying a fee. Players will draw encounter cards for monsters until they choose to stop or until their hero perishes in the dungeon. The number of coins they collect is based on the number and type of monsters they defeat. ",
-      imageName: "dungeonmandom.png",
+      imageName: "game2.jpg",
       game: "Dungeon of Mandom VIII",
     },
     {
       title: "The Three-Life Stone",
       content:
         "A standard game of Medium where two players cooperate to guess words based on psychic clues.",
-      imageName: "medium.jpg",
+      imageName: "game3.jpg",
       game: "Medium",
     },
     {
@@ -50,14 +50,14 @@ function App() {
       title: "A Horse's Tale",
       content:
         "The game is held every 15-30 minutes. Before the game starts, players use tokens for a bet on a horse they believe will win. Each player receives a betting confirmation slip marked with the event’s logo to prevent counterfeit slips. Players can enjoy other games while waiting for the race to begin. Only the horse-pulling-horse rule is used, and the rest of the game is simplified to maintain clarity and ease of play. ",
-      imageName: "longshot.jpg",
+      imageName: "game6.png",
       game: "Long Shot",
     },
     {
       title: "Soul Bells",
       content:
         "Players are given 5 bells to play over 3 rounds, each with increasing difficulty based on a drawn card. The more bells they manage to keep standing after 3 rounds, the higher their reward. Bells that fall are added to a communal pot, and any player who completes all rounds without losing a bell wins the pot. ",
-      imageName: "dropolter.jpg",
+      imageName: "game7.png",
       game: "Dro Polter",
     },
   ];
