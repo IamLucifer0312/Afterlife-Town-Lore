@@ -139,3 +139,13 @@ body {
     top: 15%;
   }
 }
+
+@media screen and (max-width: 400px) {
+  .thumbnail {
+    bottom: -8%;
+  }
+
+  .slider .list .item .content p {
+    font-size: 85%;
+  }
+}
