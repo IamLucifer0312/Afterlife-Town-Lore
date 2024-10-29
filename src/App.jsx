@@ -7,7 +7,7 @@ import GetStory from "./components/GetStory";
 import LoginRegister from "./components/LoginRegister";
 import MiddlePage from "./components/MiddlePage";
 import Register from "./components/Register";
-import Rule from "./components/Rule";
+import Rule from "./components/Rules";
 function App() {
   const userId = "671380c7735f09a4ddcbe906";
   const rules = [
