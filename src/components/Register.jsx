@@ -18,6 +18,7 @@ const Register = () => {
     e.preventDefault();
     if (password !== confPassword) {
       setError("Passwords do not match!");
+      window.alert("Passwords do not match!");
       return;
     }
     try {
