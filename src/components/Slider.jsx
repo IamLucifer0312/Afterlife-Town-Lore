@@ -39,8 +39,10 @@ const Slider = ({ stories }) => {
           <div key={story._id} className={`item ${index == 0 ? "active" : ""}`}>
             <img src={`/images/${story.imageName}`} alt={story.title} />
             <div className="content">
-              <p>{story.game}</p>
-              <h2>{story.title}</h2>
+              <div className="left">
+                <p>{story.game}</p>
+                <h2>{story.title}</h2>
+              </div>
               <p>{story.content}</p>
             </div>
           </div>
