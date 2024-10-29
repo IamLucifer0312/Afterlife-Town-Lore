@@ -72,13 +72,6 @@ const LoginRegister = () => {
             />
             <i class="bx bxs-lock-alt"></i>
           </div>
-          <div className="remember-forgot">
-            <label>
-              <input type="checkbox" />
-              Remember me
-            </label>
-            <a href="/forgot-password">Forgot password?</a>
-          </div>
           <button type="submit" className="btn">
             Login
           </button>
