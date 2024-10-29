@@ -113,7 +113,6 @@ const GetStory = () => {
       console.log("Has story:", hasStory);
       if (!hasStory) {
         updateUserStories();
-        navigate("/main-page/" + userId);
       } else {
         console.log("Story already exists");
         navigate("/main-page/" + userId);
